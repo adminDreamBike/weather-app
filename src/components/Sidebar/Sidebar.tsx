@@ -25,7 +25,7 @@ interface SidebarProps extends BoxProps {
   onClose: () => void;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({ ...rest }: SidebarProps) => {
   const { setName } = useContext(CityContext);
   const location =
     usePersistStore(useLocationStore, (state) => state.location) || [];

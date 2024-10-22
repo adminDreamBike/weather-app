@@ -2,8 +2,9 @@
 
 import { Flex, Text } from "@chakra-ui/react";
 import { Highlight } from "@/components/Highlight/Highlight";
+import { IWeather } from "@/types";
 
-export const HighlightList = ({ data }) => {
+export const HighlightList = ({ data }: { data: IWeather }) => {
   const { current } = data || {};
 
   return (

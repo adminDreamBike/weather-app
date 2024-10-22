@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 interface CityContextValue {
   name: string;
   setName: (name: string) => void;
@@ -10,7 +10,7 @@ export const CityContext = createContext<CityContextValue>({
   setName() {},
 });
 
-export function CityProvider({ children }) {
+export function CityProvider({ children }: { children: React.ReactNode }) {
   const [name, setName] = useState("Medellin");
 
   return (

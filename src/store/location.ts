@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { LocalNames } from "@/types";
 import { create } from "zustand";
 
@@ -14,7 +15,7 @@ interface LocationStoreState {
   ];
 }
 interface Actions {
-  setLocation: (location) => void;
+  setLocation: (location: any) => void;
 }
 
 const INITIAL_STATE: LocationStoreState = {

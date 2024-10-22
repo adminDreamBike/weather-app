@@ -4,7 +4,7 @@ import { FaCloudRain } from "react-icons/fa6";
 import { BsCloudSleetFill } from "react-icons/bs";
 import { Grid, Icon as IconChakra } from "@chakra-ui/react";
 
-const getIconWeather = (iconName, size = 20) => {
+const getIconWeather = (iconName = "", size = 20) => {
   switch (iconName) {
     case "Clouds":
       return <IconChakra as={BsCloudsFill} boxSize={size} color="white" />;
@@ -18,6 +18,6 @@ const getIconWeather = (iconName, size = 20) => {
       break;
   }
 };
-export const Icon = ({ main, size }) => {
+export const Icon = ({ main, size }: { main: string; size: number }) => {
   return <Grid>{getIconWeather(main, size)}</Grid>;
 };

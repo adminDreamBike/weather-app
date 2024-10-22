@@ -8,6 +8,7 @@ import { useLocation } from "@/queries/location";
 import { useWeather } from "@/queries/weather";
 import { useLocationStore } from "@/store/location";
 import { useWeatherStore } from "@/store/weather";
+import { Daily } from "@/types";
 import {
   Card,
   CardBody,
@@ -34,7 +35,6 @@ export default function Home() {
     lon: lon,
   });
   const [latitude, setLatitude] = useState(lat);
-  console.log("data", data);
 
   const { daily } = data || {};
 
@@ -63,7 +63,7 @@ export default function Home() {
     }
   }, [data, setWeather]);
 
-  const DailyCard = ({ daily }) => {
+  const DailyCard = ({ daily }: { daily: Daily }) => {
     const { weather, temp } = daily;
     const { max, min } = temp;
 
@@ -99,7 +99,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Flex gap="12px">
           {isLoading && <Spinner size="xl" />}
-          {daily?.map((item) => {
+          {daily?.map((item: Daily) => {
             return <DailyCard daily={item} key={item.dt} />;
           })}
         </Flex>

@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should render Highlight component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="chakra-card css-rrzei3"
+  >
+    <div
+      class="chakra-card__body css-rzdfkz"
+    >
+      <p
+        class="chakra-text css-15bto3y"
+      >
+        Test
+      </p>
+      <div
+        class="css-skjq34"
+      >
+        <p
+          class="chakra-text css-1bsg0uq"
+        >
+          130
+        </p>
+        <p
+          class="chakra-text css-1v15ftq"
+        >
+          mph
+        </p>
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;

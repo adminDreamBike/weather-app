@@ -36,6 +36,7 @@ export const Highlight = ({
           <Icon
             as={FaLocationArrow}
             style={{ transform: `rotate(${wind_deg}deg)` }}
+            role="img"
           />
         )}
       </CardBody>

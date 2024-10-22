@@ -1,0 +1,106 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sidebar component >  1`] = `
+<DocumentFragment>
+  <div
+    class="css-7luvuw"
+  >
+    <div
+      class="css-16mn4m5"
+    >
+      <div
+        class="css-r2hi9e"
+      >
+        <input
+          class="chakra-input css-vn5z69"
+          placeholder="Search for places"
+          spellcheck="true"
+        />
+        <div
+          class="css-4hu1sv"
+        >
+          <div
+            class="css-lgj0h8"
+          >
+            <svg
+              class="chakra-icon css-16c8gqk"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 16 16"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.473 9a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 14h8.5a2.5 2.5 0 1 0-.027-5"
+              />
+              <path
+                d="M14.544 9.772a3.5 3.5 0 0 0-2.225-1.676 5.5 5.5 0 0 0-6.337-4.002 4.002 4.002 0 0 1 7.392.91 2.5 2.5 0 0 1 1.17 4.769z"
+              />
+            </svg>
+          </div>
+          <p
+            class="chakra-text css-1l97044"
+          >
+            25.1
+            <sup
+              class="chakra-text css-11cuipc"
+            >
+              c
+            </sup>
+          </p>
+          <p
+            class="chakra-text css-aqyol4"
+          >
+            Clouds
+          </p>
+          <div
+            class="css-e8tbaw"
+          >
+            <p
+              class="chakra-text css-mp8c6w"
+            >
+              Today 
+            </p>
+            <p
+              class="chakra-text css-mp8c6w"
+            >
+              Tue, 22 Oct
+            </p>
+          </div>
+          <div
+            class="css-1fb3o3p"
+          >
+            <svg
+              class="chakra-icon css-bv7m74"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1 1 64-64 64.07 64.07 0 0 1-64 64z"
+              />
+            </svg>
+            <p
+              class="chakra-text css-1mlu7ca"
+            >
+              Medellin
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</DocumentFragment>
+`;
