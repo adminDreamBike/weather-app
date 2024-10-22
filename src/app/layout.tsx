@@ -1,7 +1,9 @@
-import { lusitana, montserrat } from "@/libs/fonts";
+import { montserrat } from "@/libs/fonts";
 import "../styles/globals.css";
 import { ChakraUIProvider } from "@/providers/ChakraUIProvider";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import { Sidebar } from "@/components/Sidebar/Sidebar";
+import { CityProvider } from "@/context/city";
 
 export default function RootLayout({
   children,
@@ -11,9 +13,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <ChakraUIProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </ChakraUIProvider>
+        <CityProvider>
+          <ChakraUIProvider>
+            <ReactQueryProvider>
+              <Sidebar />
+              {children}
+            </ReactQueryProvider>
+          </ChakraUIProvider>
+        </CityProvider>
       </body>
     </html>
   );
