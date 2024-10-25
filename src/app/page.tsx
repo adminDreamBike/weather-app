@@ -18,18 +18,24 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
+import { useToast } from "@chakra-ui/react";
+import {
+  Map,
+  useApiLoadingStatus,
+  APILoadingStatus,
+} from "@vis.gl/react-google-maps";
 
 export default function Home() {
   const { name } = useContext(CityContext);
   const [nameCity, setNameCity] = useState(name);
-  const { location, refetch } = useLocation(name);
+  const { location, refetch, isError, error } = useLocation(name);
   const { setLocation, location: locationStore = [] } = usePersistStore(
     useLocationStore,
     (state) => state
   ) || { location: [], setLocation: () => null };
   const { setWeather, weather } = useWeatherStore();
 
-  const { lat, lon } = locationStore[0] || {};
+  const { lat = 0, lon = 0 } = locationStore[0] || {};
   const { data, isLoading, refetchWeather } = useWeather({
     lat: lat,
     lon: lon,
@@ -37,7 +43,8 @@ export default function Home() {
   const [latitude, setLatitude] = useState(lat);
 
   const { daily } = data || {};
-
+  const toast = useToast();
+  const status = useApiLoadingStatus();
   useEffect(() => {
     setNameCity(name);
 
@@ -94,10 +101,19 @@ export default function Home() {
     );
   };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 sm:p-64">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 lg:px-64">
       <header></header>
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Flex gap="12px">
+        {status === APILoadingStatus.LOADING && <Spinner size="lg" />}
+        <Map
+          style={{ width: "70vw", height: "50vh" }}
+          defaultCenter={{ lat: lat, lng: lon }}
+          defaultZoom={12}
+          gestureHandling={"greedy"}
+          disableDefaultUI={true}
+          key={lat}
+        />
+        <Flex gap="12px" flexWrap="wrap">
           {isLoading && <Spinner size="xl" />}
           {daily?.map((item: Daily) => {
             return <DailyCard daily={item} key={item.dt} />;
@@ -107,6 +123,13 @@ export default function Home() {
         <HighlightList data={weather} />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center"></footer>
+      {isError &&
+        toast({ title: "An Error has occured", description: `${error}` })}
+      {location?.length === 0 &&
+        toast({
+          title: "No city was founded",
+          description: `${name} was found. Try with another one!!!`,
+        })}
     </div>
   );
 }
